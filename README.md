@@ -4,5 +4,6 @@
 # Install
 ## run
  source price_alert_env/bin/activate
+ sudo apt-get install libpq-dev
  pip install -r requirements.txt
  cd price_alert/    
