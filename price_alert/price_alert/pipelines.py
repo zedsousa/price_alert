@@ -8,13 +8,14 @@ class SaveToPostgresPipeline:
 
     def __init__(self):
         ## Connection Details
-        hostname = 'localhost'
+        hostname = 'containers-us-west-131.railway.app'
         username = 'postgres'
-        password = 'postgres'
-        database = 'price_alert'
+        password = '6ZrstQAhzDWB1ObnJeVf'
+        database = 'railway'
+        port = '6073'
 
         ## Create/Connect to database
-        self.connection = psycopg2.connect(host=hostname, user=username, password=password, dbname=database)
+        self.connection = psycopg2.connect(host=hostname, port=port, user=username, password=password, dbname=database)
         
         ## Create cursor, used to execute commands
         self.cur = self.connection.cursor()
@@ -48,7 +49,7 @@ class SaveToPostgresPipeline:
 
         last_price = self.cur.fetchone()
         
-        if last_price and float(last_price[0]) > item['price']:
+        if last_price and (float(last_price[0]) - item['price']) > 10:
             ## Send Telegram message
             self.send_telegram_message(item, last_price[0])
 
