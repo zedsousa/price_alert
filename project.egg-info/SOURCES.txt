@@ -1,0 +1,13 @@
+setup.py
+price_alert/__init__.py
+price_alert/items.py
+price_alert/middlewares.py
+price_alert/pipelines.py
+price_alert/settings.py
+price_alert/spiders/__init__.py
+price_alert/spiders/amazon_spider.py
+project.egg-info/PKG-INFO
+project.egg-info/SOURCES.txt
+project.egg-info/dependency_links.txt
+project.egg-info/entry_points.txt
+project.egg-info/top_level.txt
